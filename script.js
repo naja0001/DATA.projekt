@@ -1,22 +1,23 @@
 "use strict";
 
-const wartortle = {
-  discription:
-    "Wartortle is a Water Pokémon which evolves from Squirtle. It is vulnerable to Grass and Electric moves. Wartortle's strongest moveset is Water Gun",
-  name: "Wartortle ",
-  number: "#0008",
-  height: "3'03",
-  weight: "49.6 ibs",
-  category: "Turtle",
-  gender: " Male and Female ",
-  type: "water",
-  weaknesses: "Grass and electric",
-};
+window.addEventListener("load", initApp);
 
-console.log(wartortle);
+async function initApp() {
+  const wartortle = await getPokemon("data/pokemon.JSON");
+  showpokemon(wartortle);
+}
 
-function addPokemon(pokemons) {
+async function getPokemon(url) {
+  const response = await fetch(url);
+  const data = response.json();
+  return data;
+}
+
+function showpokemon(pokemons) {
+  console.log(pokemons);
+
   const myPokemons = /* html */ `
+  <!--
 <li> <b> Disccription</b>: <br> ${pokemons.discription}</li>
   <br><li> <b>Name</b>: ${pokemons.name}</li>
   <li> <b>Number</b>: ${pokemons.number} </li>
@@ -25,13 +26,32 @@ function addPokemon(pokemons) {
   <li> <b>Category</b>: ${pokemons.category} </li>
   <li> <b>Gender</b>: ${pokemons.gender} </li>
   <li> <b>Type</b>: ${pokemons.type} </li>
-  <li> <b>Weaknesses</b>: ${pokemons.weaknesses} </li>
+  <li> <b>Weaknesses</b>: ${pokemons.weaknesses} </li>-->
   
+    <article class="grid-item">
+        <h2>${pokemons.name}</h2>
+        <p>${pokemons.number}</p>
+        <p> ${pokemons.type}</p>
+        <img src = "${pokemons.image}" alt=""/>
+    </article>
+
 `;
 
   document
-    .querySelector("#pokemons")
+    .querySelector("#pokemon-character")
     .insertAdjacentHTML("beforeend", myPokemons);
-}
+  document
+    .querySelector("#pokemon-character article:last-child")
+    .addEventListener("click", pokemonClicked);
 
-addPokemon(wartortle);
+  function pokemonClicked() {
+    console.log("______________________________________");
+
+    document.querySelector("#detail-name").textContent = pokemons.name;
+    document.querySelector("#detail-number").textContent = pokemons.number;
+    document.querySelector("#detail-category").textContent = pokemons.category;
+    document.querySelector("#detail-image").src = pokemons.image;
+
+    document.querySelector("#dialog").showModal();
+  }
+}

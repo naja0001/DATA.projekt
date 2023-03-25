@@ -1,0 +1,56 @@
+body {
+  background-color: rgb(109, 194, 194);
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  top: 0;
+  color: white;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  background-color: rgb(4, 82, 82);
+  color: white;
+  top: 0;
+  padding: 1.5em;
+}
+
+dialog {
+  border-color: rgb(173, 255, 255);
+  background-color: rgb(4, 82, 82);
+  width: 65vw;
+}
+
+.dialog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-item {
+  box-shadow: 1px 1px 8px black;
+  padding: 10vh;
+  background-color: rgb(4, 82, 82);
+  cursor: pointer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  padding: 1em;
+}

@@ -5,10 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DATA</title>
+    <link rel="stylesheet" href="app.css" />
   </head>
   <body>
-    <h1>Pokemons</h1>
-    <ul id="pokemons"></ul>
+    <header>
+      <h1>Pokemons</h1>
+    </header>
+
+    <!--<ul id="pokemons"></ul>-->
+
+    <main>
+      <div id="pokemon-character" class="grid-container"></div>
+    </main>
+
+    <dialog id="dialog">
+      <h2 id="detail-name"></h2>
+      <p id="detail-number"></p>
+      <p id="detail-category"></p>
+      <img id="detail-image" src="" alt="" />
+
+      <form method="dialog">
+        <button>Close</button>
+      </form>
+    </dialog>
 
     <script src="script.js"></script>
   </body>
