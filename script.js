@@ -30,9 +30,9 @@ function showpokemon(pokemons) {
   
     <article class="grid-item">
         <h2>${pokemons.name}</h2>
-        <p>${pokemons.number}</p>
-        <p> ${pokemons.type}</p>
         <img src = "${pokemons.image}" alt=""/>
+        <h4>Number: ${pokemons.number}</h4>
+        <h4> Type: ${pokemons.type}</h4>
     </article>
 
 `;
@@ -47,10 +47,62 @@ function showpokemon(pokemons) {
   function pokemonClicked() {
     console.log("______________________________________");
 
-    document.querySelector("#detail-name").textContent = pokemons.name;
-    document.querySelector("#detail-number").textContent = pokemons.number;
-    document.querySelector("#detail-category").textContent = pokemons.category;
     document.querySelector("#detail-image").src = pokemons.image;
+    document.querySelector("#detail-name").textContent = pokemons.name;
+    document.querySelector(
+      "#detail-number"
+    ).textContent = `Number: ${pokemons.number}`;
+    document.querySelector(
+      "#detail-category"
+    ).textContent = `Category: ${pokemons.category}`;
+    document.querySelector(
+      "#detail-ability"
+    ).textContent = `Ability: ${pokemons.ability}`;
+    document.querySelector(
+      "#detail-dexindex"
+    ).textContent = `Dexindex: ${pokemons.dexindex}`;
+    document.querySelector(
+      "#detail-subtype"
+    ).textContent = `Subtype: ${pokemons.subtype}`;
+    document.querySelector(
+      "#detail-generation"
+    ).textContent = `Generation: ${pokemons.generation}`;
+    document.querySelector(
+      "#detail-height"
+    ).textContent = `Height: ${pokemons.height} cm`;
+    document.querySelector(
+      "#detail-weight"
+    ).textContent = `Weight: ${pokemons.weight} kg`;
+    document.querySelector(
+      "#detail-gender"
+    ).textContent = `Gender: ${pokemons.gender}`;
+    document.querySelector(
+      "#detail-type"
+    ).textContent = `Type: ${pokemons.type}`;
+    document.querySelector(
+      "#detail-weaknesses"
+    ).textContent = `Weaknesses: ${pokemons.weakneses}`;
+    document.querySelector(
+      "#detail-spilversion"
+    ).textContent = `Spilversion: ${pokemons.spilversion}`;
+    document.querySelector(
+      "#detail-canEvolve"
+    ).textContent = `canEvovle: ${pokemons.canEvolve}`;
+    document.querySelector(
+      "#detail-statsHP"
+    ).textContent = `statsHP: ${pokemons.statsHP}`;
+    document.querySelector(
+      "#detail-statsattack"
+    ).textContent = `statsattack: ${pokemons.statsattack}`;
+    document.querySelector(
+      "#detail-statsDefense"
+    ).textContent = `statsDefense: ${pokemons.statsDefense}`;
+    document.querySelector(
+      "#detail-statsSpecielAttack"
+    ).textContent = `statsSpecielAttack: ${pokemons.statsSpecielAttack}`;
+    document.querySelector(
+      "#detail-statsSpecielDefense"
+    ).textContent = `statsSpecielDefense: ${pokemons.statsSpecielDefense}`;
 
     document.querySelector("#dialog").showModal();
   }
