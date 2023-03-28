@@ -13,7 +13,7 @@
   "gender": ["87.5% Male", "12.5% female"],
   "type": "water",
   "weaknesses": ["Grass", "electric"],
-  "spilversion": 1,
+  "spilversion": "First episode",
   "canEvolve": true,
   "statsHP": 4,
   "statsAttack": 4,
