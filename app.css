@@ -58,3 +58,24 @@ dialog {
   gap: 1em;
   padding: 1em;
 }
+
+button {
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: rgb(71, 189, 168);
+  text-transform: uppercase;
+  padding: 1vh;
+  width: 100%;
+}
+
+.dialog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dialog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

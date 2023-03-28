@@ -3,8 +3,9 @@
 window.addEventListener("load", initApp);
 
 async function initApp() {
-  const wartortle = await getPokemon("data/pokemon.JSON");
-  showpokemon(wartortle);
+  const pokemons = await getPokemon("data/pokemon.JSON");
+
+  pokemons.forEach(showpokemon);
 }
 
 async function getPokemon(url) {
@@ -31,8 +32,9 @@ function showpokemon(pokemons) {
     <article class="grid-item">
         <h2>${pokemons.name}</h2>
         <img src = "${pokemons.image}" alt=""/>
-        <h4>Number: ${pokemons.number}</h4>
-        <h4> Type: ${pokemons.type}</h4>
+        <p>Number: ${pokemons.ability}</p>
+        <p> Type: ${pokemons.type}</p>
+        <p> Gender: ${pokemons.gender}</p>
     </article>
 
 `;
@@ -49,6 +51,9 @@ function showpokemon(pokemons) {
 
     document.querySelector("#detail-image").src = pokemons.image;
     document.querySelector("#detail-name").textContent = pokemons.name;
+    document.querySelector(
+      "#detail-description"
+    ).textContent = `Description: ${pokemons.description}`;
     document.querySelector(
       "#detail-number"
     ).textContent = `Number: ${pokemons.number}`;
@@ -81,7 +86,7 @@ function showpokemon(pokemons) {
     ).textContent = `Type: ${pokemons.type}`;
     document.querySelector(
       "#detail-weaknesses"
-    ).textContent = `Weaknesses: ${pokemons.weakneses}`;
+    ).textContent = `Weaknesses: ${pokemons.weaknesses}`;
     document.querySelector(
       "#detail-spilversion"
     ).textContent = `Spilversion: ${pokemons.spilversion}`;
@@ -93,17 +98,17 @@ function showpokemon(pokemons) {
     ).textContent = `statsHP: ${pokemons.statsHP}`;
     document.querySelector(
       "#detail-statsattack"
-    ).textContent = `statsattack: ${pokemons.statsattack}`;
+    ).textContent = `statsattack: ${pokemons.statsAttack}`;
     document.querySelector(
       "#detail-statsDefense"
-    ).textContent = `statsDefense: ${pokemons.statsDefense}`;
+    ).textContent = `statsDefense: ${pokemons.statsDefence}`;
     document.querySelector(
       "#detail-statsSpecielAttack"
     ).textContent = `statsSpecielAttack: ${pokemons.statsSpecielAttack}`;
     document.querySelector(
       "#detail-statsSpecielDefense"
-    ).textContent = `statsSpecielDefense: ${pokemons.statsSpecielDefense}`;
+    ).textContent = `statsSpecielDefense: ${pokemons.statsSpecielDefence}`;
 
-    document.querySelector("#dialog").showModal();
+    document.querySelector("#dialog-character").showModal();
   }
 }
