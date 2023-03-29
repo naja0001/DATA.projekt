@@ -1,3 +1,7 @@
+:root {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 body {
   background-color: rgb(109, 194, 194);
   margin: 0;
@@ -6,20 +10,32 @@ body {
 h1 {
   text-align: center;
   color: white;
+  letter-spacing: 0.5px;
 }
 
 p {
   color: white;
+  letter-spacing: 0.5px;
+  line-height: 2;
 }
 
-h2 {
+li {
+  color: white;
+  letter-spacing: 0.5px;
+  line-height: 2;
+}
+
+h2,
+h3 {
   text-align: center;
   top: 0;
   color: white;
+  letter-spacing: 0.5px;
 }
 
 h4 {
-  color: rgb(177, 226, 228);
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.1px;
 }
 
 img {
@@ -40,9 +56,31 @@ dialog {
   width: 45vw;
 }
 
-.dialog-grid {
+button {
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: rgb(109, 194, 194);
+  text-transform: uppercase;
+  padding: 5px;
+  width: 100%;
+}
+
+/*----------------grids----------------------*/
+dialog {
+  width: 65vw;
+  padding: 2em 1em;
+}
+
+dialog::backdrop {
+  background: rgba(130, 180, 185, 0.8);
+}
+
+#dialog-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
+  padding: 30px;
 }
 
 .grid-item {
@@ -54,28 +92,37 @@ dialog {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1em;
-  padding: 1em;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px 10px;
+  padding: 20px;
 }
 
-button {
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  color: white;
-  background-color: rgb(71, 189, 168);
-  text-transform: uppercase;
-  padding: 1vh;
-  width: 100%;
+/*--------------media--------------------*/
+
+@media screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
 }
 
-.dialog-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+@media screen and (min-width: 601px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
 }
 
-.dialog-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+@media screen and (min-width: 801px) {
+  .grid-container {
+    grid-template-columns: auto auto auto auto;
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #dialog-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
 }

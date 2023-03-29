@@ -5,7 +5,13 @@ window.addEventListener("load", initApp);
 async function initApp() {
   const pokemons = await getPokemon("data/pokemon.JSON");
 
-  pokemons.forEach(showpokemon);
+  //for of loop pokemon et object af pokemons array'et
+  for (const pokemon of pokemons) {
+    showpokemon(pokemon);
+    console.log(pokemon);
+  }
+
+  //eller pokemon.forEach(showpokemon)
 }
 
 async function getPokemon(url) {
@@ -32,7 +38,7 @@ function showpokemon(pokemons) {
     <article class="grid-item">
         <h2>${pokemons.name}</h2>
         <img src = "${pokemons.image}" alt=""/>
-        <p>Number: ${pokemons.ability}</p>
+        <p>Ability: ${pokemons.ability}</p>
         <p> Type: ${pokemons.type}</p>
         <p> Gender: ${pokemons.gender}</p>
     </article>
@@ -51,9 +57,9 @@ function showpokemon(pokemons) {
 
     document.querySelector("#detail-image").src = pokemons.image;
     document.querySelector("#detail-name").textContent = pokemons.name;
-    document.querySelector(
-      "#detail-description"
-    ).textContent = `Description: ${pokemons.description}`;
+    document.querySelector("#detail-info").textContent = pokemons.name;
+    document.querySelector("#detail-description").textContent =
+      pokemons.description;
     document.querySelector(
       "#detail-number"
     ).textContent = `Number: ${pokemons.number}`;
@@ -90,9 +96,10 @@ function showpokemon(pokemons) {
     document.querySelector(
       "#detail-spilversion"
     ).textContent = `Spilversion: ${pokemons.spilversion}`;
-    document.querySelector(
-      "#detail-canEvolve"
-    ).textContent = `canEvovle: ${pokemons.canEvolve}`;
+
+    let canEvolve = generateEvolve(pokemons);
+
+    document.querySelector("#detail-canEvolve").textContent = canEvolve;
     document.querySelector(
       "#detail-statsHP"
     ).textContent = `statsHP: ${pokemons.statsHP}`;
@@ -111,4 +118,14 @@ function showpokemon(pokemons) {
 
     document.querySelector("#dialog-character").showModal();
   }
+}
+
+function generateEvolve(pokemons) {
+  let canEvolve = "";
+  if (pokemons.canEvolve) {
+    canEvolve = `${pokemons.name} can evolve.`;
+  } else {
+    canEvolve = `${pokemons.name} can't evolve.`;
+  }
+  return canEvolve;
 }
