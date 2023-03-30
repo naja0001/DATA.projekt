@@ -54,7 +54,6 @@ function showpokemon(pokemons) {
     document.querySelector("#detail-info").textContent = pokemons.name;
     document.querySelector("#detail-description").textContent =
       pokemons.description;
-    document.querySelector("#detail-category").textContent = pokemons.category;
     document.querySelector("#detail-ability").textContent = pokemons.ability;
     document.querySelector("#detail-dexindex").textContent = pokemons.dexindex;
     document.querySelector("#detail-subtype").textContent = pokemons.subtype;
