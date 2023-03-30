@@ -73,10 +73,10 @@ function showpokemon(pokemons) {
       pokemons.statsAttack;
     document.querySelector("#detail-statsDefense").textContent =
       pokemons.statsDefence;
-    document.querySelector("#detail-statsSpecielAttack").textContent =
-      pokemons.statsSpecielAttack;
-    document.querySelector("#detail-statsSpecielDefense").textContent =
-      pokemons.statsSpecielDefence;
+    document.querySelector("#detail-statsSpecialAttack").textContent =
+      pokemons.statsSpecialAttack;
+    document.querySelector("#detail-statsSpecialDefense").textContent =
+      pokemons.statsSpecialDefence;
 
     let canEvolve = generateEvolve(pokemons);
 
